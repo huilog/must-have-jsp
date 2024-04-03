@@ -1,0 +1,43 @@
+package utils;
+
+import jakarta.servlet.http.Cookie;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+
+public class CookieManager {
+	//명시한 이름, 값, 유지 기간 조건으로 새로운 쿠키 생성
+	public static void makeCookie(HttpServletResponse response, String cName, String cValue, int cTime) {
+		//1.매개변수로 쿠키 생성
+		Cookie cookie = new Cookie(cName, cValue);
+		//2.루트로 쿠키 경로 설정
+		cookie.setPath("/");
+		//3. 매개변수로 쿠키 유지 기간 설정
+		cookie.setMaxAge(cTime);
+		//4. 응답 객체에 추가
+		response.addCookie(cookie);
+		
+	}
+	
+	//명시한 이름의 쿠키를 찾아 그 값을 반환
+	public static String readCookie(HttpServletRequest response, String cName) {
+		String cookieVal =""; //반환 값
+		
+		Cookie[] cookies = response.getCookies();
+		if(cookies != null) {
+			for (Cookie c : cookies) {
+				String cookieName = c.getName();
+				if(cookieName.equals(cName)) {
+					cookieVal = c.getValue(); //반환 값 갱신
+				}
+			}
+		}
+		
+		return cookieVal;
+	}
+	
+	//명시한 이름의 쿠키 삭제
+	public static void deleteCookie(HttpServletResponse response, String cName) {
+		makeCookie(response, cName, "", 0);
+	}
+	
+}
