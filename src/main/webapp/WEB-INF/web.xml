@@ -15,7 +15,26 @@
   	<param-name>INIT_PARAM</param-name>
   	<param-value>web.xml에 저장한 초기화 매개변수</param-value>
   </context-param>
-
+  
+  <!-- 5.6.4 연결 설정 개선 - 예제 5-8 web.xml에 오라클 접속 정보 입력 -->
+  <context-param>
+  	<param-name>OracleDriver</param-name> <!-- 드라이버 이름 -->
+  	<param-value>oracle.jdbc.OracleDriver</param-value>
+  </context-param>
+  <context-param>
+  	<param-name>OracleURL</param-name> <!-- 접속 URL -->
+  	<param-value>jdbc:oracle:thin:@localhost:1521:orcl</param-value>
+  </context-param>
+  <context-param>
+  	<param-name>OracleId</param-name> <!-- 계정 ID -->
+  	<param-value>musthave</param-value>
+  </context-param>
+  <context-param>
+  	<param-name>OraclePwd</param-name> <!-- PWD -->
+  	<param-value>1234</param-value>
+  </context-param>
+  
+	
 <!-- 이와 같은 에러 페이지 처리는 실제 서비스에서 오류 발생 시 코드가 고객에게 그대로 노출되는 문제를 피하기 위해 사용하는 것이므로,
 개발 시에는 자세한 에러 메시지를 확인하면서 디버깅해야 하므로 에러 페이지 지정은 개발이 완료된 후 하는 것이 좋음.   
 	<error-page>
