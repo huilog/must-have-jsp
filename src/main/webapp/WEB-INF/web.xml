@@ -34,6 +34,16 @@
   	<param-value>1234</param-value>
   </context-param>
   
+  <!-- 9.6.1 설정값 관리 - 예제 9-3 페이징 설정값 -->
+  <context-param>
+  	<param-name>POSTS_PER_PAGE</param-name>
+  	<param-value>10</param-value>
+  </context-param>
+  <context-param>
+  	<param-name>PAGES_PER_BLOCK</param-name>
+  	<param-value>5</param-value>
+  </context-param>
+  
   <!-- 6.2 세션 설정, 확인, 삭제 - 예제6-1 세션 유지 시간 설정 -->
   <session-config>
   	<session-timeout>20</session-timeout> <!-- 시간 단위를 분 단위로 설정 -->
