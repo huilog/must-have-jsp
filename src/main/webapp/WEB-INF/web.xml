@@ -38,6 +38,25 @@
   <session-config>
   	<session-timeout>20</session-timeout> <!-- 시간 단위를 분 단위로 설정 -->
   </session-config>
+  
+  <!-- 7.4.4 한글 인코딩 문제 해결 - 예제7-9 모든 페이지에 캐릭터 인코딩 설정하기 -->
+  <filter>
+  	<!-- 필터 이름 정의 -->
+  	<filter-name>SetCharEncoding</filter-name>
+  	<!-- 사용할 클래스 -->
+  	<filter-class>org.apache.catalina.filters.SetCharacterEncodingFilter</filter-class>
+  		<!-- 클래스에 전달할 매개변수 -->
+  		<init-param>
+  			<param-name>encoding</param-name>
+  			<param-value>utf-8</param-value>
+  		</init-param>
+  </filter>
+  <!-- 요청 URL과 필터 매핑 -->
+  <filter-mapping>
+  	<filter-name>SetCharEncoding</filter-name>
+  	<!-- 웹 애플리케이션에 들어오는 모든 요청에 setCharEncoding 필터 적용 -->
+  	<url-pattern>/*</url-pattern>
+  </filter-mapping>
 	
 <!-- 이와 같은 에러 페이지 처리는 실제 서비스에서 오류 발생 시 코드가 고객에게 그대로 노출되는 문제를 피하기 위해 사용하는 것이므로,
 개발 시에는 자세한 에러 메시지를 확인하면서 디버깅해야 하므로 에러 페이지 지정은 개발이 완료된 후 하는 것이 좋음.   
