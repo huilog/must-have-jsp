@@ -16,12 +16,16 @@ dto.setId(session.getAttribute("UserId").toString());
 
 //DAO 객체를 통해 DB에 DTO 저장
 BoardDAO dao = new BoardDAO(application);
-// int iResult = dao.insertWrite(dto);
+int iResult = dao.insertWrite(dto);
+
+/* 더미 데이터 생성용
 int iResult = 0;
 for(int i = 1; i <= 100; i++) {
 	dto.setTitle(title + "-" + i);
 	iResult = dao.insertWrite(dto);
 }
+*/
+
 dao.close();
 
 //성공 or 실패?
