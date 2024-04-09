@@ -68,6 +68,27 @@
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
 	
+	
+	<!-- 예제 15-2 JSP 파일에 필터를 매핑 -->
+	<filter>
+		<filter-name>BasicFilter</filter-name>
+		<filter-class>filter.BasicFilter</filter-class>
+		<init-param>
+			<param-name>FILTER_INIT_PARAM</param-name>
+			<param-value>필터 초기화 매개변수</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>BasicFilter</filter-name>
+		<url-pattern>/15FilterListener/BasicFilter.jsp</url-pattern>
+	</filter-mapping>
+	
+	<!-- 예제 15-10 리스너 클래스 등록 -->
+	<listener>
+		<!-- listener-class 요소에 패키지를 포함한 클래스명을 입력하기만 하면 리스너 등록이 완료됨 -->
+		<listener-class>listener.ContextListener</listener-class>
+	</listener>
+	
 	<!-- 12.5.1  web.xml에서 매핑 - 예제 12-2 web.xml에 매칭 정보 추가 -->
 	<servlet>
 		<servlet-name>HelloServlet</servlet-name>
