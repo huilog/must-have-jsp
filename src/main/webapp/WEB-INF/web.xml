@@ -44,6 +44,13 @@
 		<param-value>5</param-value>
 	</context-param>
 	
+	<!-- 예제 16-3 채팅 서버에 접속하기 위한 요청 URL -->
+	<!-- 요청명은 서버의 환경에 따라 달라지는 정보이므로, 컨텍스트 초기화 매개변수로 관리하는 것이 좋음. 실제 서비스용으로 배포할 때 web.xml만 수정하면 되기 때문. -->
+	<context-param>
+		<param-name>CHAT_ADDR</param-name>
+		<param-value>ws://localhost:8080/mustHaveJSP</param-value>
+	</context-param>
+	
 	<!-- 6.2 세션 설정, 확인, 삭제 - 예제6-1 세션 유지 시간 설정 -->
 	<session-config>
 		<session-timeout>20</session-timeout> <!-- 시간 단위를 분 단위로 설정 -->
